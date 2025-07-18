@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Multi-Format Bulk Text Replacer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.97);
+            padding: 32px 30px 28px 30px;
+            border-radius: 18px;
+            max-width: 480px;
+            margin: 48px auto;
+            box-shadow: 0 4px 24px rgba(46,61,73,0.13);
+        }
+        h2 {
+            text-align: center;
+            background: linear-gradient(90deg, #1e3c72, #2a5298, #00c6ff);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+        label { font-weight: 500; display: block; margin-bottom: 2px;}
+        input[type="text"], input[type="file"] {
+            width: 100%; padding: 8px; margin-bottom: 18px; border-radius: 5px; border: 1px solid #b5c0d3; background: #f5f8fb;
+        }
+        input[type="file"] { padding: 6px; }
+        button {
+            width: 100%;
+            background: linear-gradient(90deg, #396afc 0%, #2948ff 100%);
+            color: white; border: none; border-radius: 7px;
+            padding: 13px 0; font-size: 1rem; font-weight: 600;
+            box-shadow: 0 2px 8px rgba(30,60,114,0.13);
+            transition: background 0.25s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #2948ff 0%, #396afc 100%);
+        }
+        .info {
+            margin-top:20px; color:#334; font-size:13px; line-height:1.5; background:#eaf0fa; border-radius:6px; padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Multi-Format Bulk Text Replacer</h2>
+        <form method="post" enctype="multipart/form-data">
+            <label>Data file (.pdf, .csv, .xpt, or .zip):</label>
+            <input type="file" name="data_file" accept=".pdf,.csv,.xpt,.zip" required>
+
+            <label>Word to replace:</label>
+            <input type="text" name="search_str" value="CDISC" required>
+
+            <label>Replacement word:</label>
+            <input type="text" name="replace_str" value="CSIDC" required>
+
+            <button type="submit">Replace & Download as ZIP</button>
+        </form>
+        <div class="info">
+            Upload PDF, CSV, XPT, or a ZIP of files.<br>
+            All processed files will be zipped for download.<br>
+            PDF editing uses the <code>times.ttf</code> font in your app folder.
+        </div>
+    </div>
+</body>
+</html>
