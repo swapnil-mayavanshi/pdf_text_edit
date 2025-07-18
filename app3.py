@@ -118,4 +118,6 @@ def index():
     return render_template('index_multi_simple.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # --- This is the only important change for Railway ---
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
